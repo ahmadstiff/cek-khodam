@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CEK KODHAM</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+
+    
+</head>
+<body class="bg-gray-300 h-screen flex items-center justify-center">
+    <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
+        <h1 class="text-3xl font-bold mb-4 text-center">CEK KODHAM</h1>
+        <input type="text" id="nameInput" placeholder="Masukkan Nama" class="w-full p-4 mb-4 border rounded text-sm text-gray-700">
+        <button onclick="generatePersonality()" class="w-full bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">CEK</button>
+        <div id="outputContainer" class="mt-4">
+            <h2 class="text-xl font-bold mb-2">Khodam Kamu</h2>
+            <p id="output" class="text-xl text-bold text-green-700"></p>
+        </div>
+    </div>
+    <script>
+        document.getElementById('nameInput').addEventListener('keydown', function(event) {
+            if (event.key === 'Enter') {
+                generatePersonality();
+            }
+        });
+
+        function generatePersonality() {
+            const personalities = [
+                "Harimau Oleng",
+                "Ambatron",
+                "Bekantan hijau",
+                "Malin kandang",
+                "Tikus got",
+                "Zeus",
+                "Gajah Jawa",
+                "Kura-kura hijau",
+                "Kelinci tolol",
+                "Macan kolot",
+                "Niga man",
+                "kagak ada",
+                "Kucing hitam",
+                "oky jeli drink",
+                "kuda lumping",
+                "rawarontek",
+                "gajah duduk",
+                "kodok zuma",
+                "sendal jepit",
+                "badak bercula 5",
+                "karpet terbang",
+                "kontol kuda"
+            ];
+
+            const name = document.getElementById('nameInput').value;
+            if (name.trim() === "") {
+                alert("Silakan masukkan nama.");
+            } else {
+                const randomIndex = Math.floor(Math.random() * personalities.length);
+                const outputText = ` ${personalities[randomIndex]}.`;
+
+                const output = document.getElementById('output');
+                output.textContent = outputText;
+            }
+        }
+    </script>
+</body>
+</html>
